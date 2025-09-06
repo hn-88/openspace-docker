@@ -46,3 +46,4 @@ RUN apt install -y xvfb
 # Setting up the enviroment so that we can quickly build OpenSpace from the container
 ENV CMAKE_EXPORT_COMPILE_COMMANDS=1
 COPY data/build.sh /
+RUN chmod +x /build.sh
