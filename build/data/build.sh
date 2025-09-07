@@ -14,8 +14,8 @@ if [ ${#args_array[@]} -eq 1 ]; then
 fi
 
 # Clone the Git repository with 8 threads. We also only want the most recent commit
-git clone --recursive --jobs 8 --depth 1 --branch "${args_array[0]}" https://github.com/OpenSpace/OpenSpace
-cd OpenSpace && mkdir build
+git clone --recursive --jobs 8 --depth 1 --branch "${args_array[0]}" https://github.com/OpenSpace/OpenSpace OpenSpacemount/OpenSpace
+cd OpenSpacemount/OpenSpace && mkdir build
 
 # Build
 cmake -S . -DOPENSPACE_DISTRO=ubuntu24.04 -DCMAKE_INSTALL_PREFIX=/usr -B ./build
