@@ -25,5 +25,10 @@ cmake -S . \
   -DCMAKE_CXX_COMPILER=/usr/bin/g++-13 \
   -DCMAKE_CXX_STANDARD=20 \
   -B ./build
+
+# Use the system's libvulkan, not the vendored one, otherwise they might conflict
+cef_orig_dir=$(find $HOME/source/OpenSpace/build -path */Release/libcef.so | xargs dirname)
+rm -v $cef_orig_dir/libvulkan.so.1
+
 cmake --build build --parallel 3
 cpack -G DEB
