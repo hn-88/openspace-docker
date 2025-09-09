@@ -22,24 +22,29 @@ RUN apt install -y software-properties-common
 RUN add-apt-repository ppa:ubuntu-toolchain-r/ppa
 RUN apt update
 
-RUN apt install -y gcc-13 g++-13 pkg-config \
-  libpthread-stubs0-dev  libpng-dev  \
+RUN apt install -y gcc-13 g++-13 \
+  pkg-config \
+  libpthread-stubs0-dev \
   libstdc++-13-dev
 
 
 # Install the remaining OpenSpace dependencies
 RUN apt install -y freeglut3-dev \
- libxrandr-dev \
+  glew-utils\
+  libpng-dev \
+  libxrandr-dev \
   libxinerama-dev \
   xorg-dev \
   libxcursor-dev \
+  libcurl4-openssl-dev \
   libxi-dev \
   libasound2-dev \
   libgdal-dev \
+  libboost-all-dev \
   qt6-base-dev \
   libmpv-dev \
-  libvulkan-dev
-
+  libvulkan-dev \
+  libasound2t64
 
 # Install dependencies for running unit tests
 RUN apt install -y xvfb
