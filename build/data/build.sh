@@ -24,6 +24,7 @@ cmake -S . \
   -DCMAKE_C_COMPILER=/usr/bin/gcc-13 \
   -DCMAKE_CXX_COMPILER=/usr/bin/g++-13 \
   -DCMAKE_CXX_STANDARD=20 \
+  -DCMAKE_C_STANDARD=20 \
   -B ./build
 cmake --build build --parallel 3
 cpack -G DEB
