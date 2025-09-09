@@ -24,7 +24,7 @@ RUN apt update
 
 RUN apt install -y gcc-13 g++-13 pkg-config \
   libpthread-stubs0-dev  libpng-dev  \
-  libstdc++-dev
+  libstdc++-13-dev
 
 
 # Install the remaining OpenSpace dependencies
