@@ -4,13 +4,7 @@ RUN apt update
 
 
 # Get a supported version for CMake and install
-RUN apt install -y wget
-RUN wget https://github.com/Kitware/CMake/releases/download/v3.25.0/cmake-3.25.0-linux-x86_64.sh -q -O /tmp/cmake-install.sh
-RUN chmod u+x /tmp/cmake-install.sh
-RUN mkdir /opt/cmake
-RUN /tmp/cmake-install.sh --skip-license --prefix=/opt/cmake
-RUN ln -s /opt/cmake/bin/* /usr/local/bin
-
+RUN apt install -y wget cmake
 
 # Set up the compiler
 RUN apt install -y build-essential
@@ -18,10 +12,6 @@ RUN apt install -y git
 
 
 ## Install GCC 13 and enable
-RUN apt install -y software-properties-common
-RUN add-apt-repository ppa:ubuntu-toolchain-r/ppa
-RUN apt update
-
 RUN apt install -y gcc-13 g++-13 \
   pkg-config \
   libpthread-stubs0-dev \
