@@ -19,11 +19,13 @@ cd OpenSpacemount/OpenSpace && mkdir build
 
 # Build
 cmake -S . \
-  -DOPENSPACE_DISTRO=ubuntu24.04 \
-  -DCMAKE_INSTALL_PREFIX=/usr \
-  -DCMAKE_C_COMPILER=/usr/bin/gcc-13 \
+  -DCMAKE_BUILD_TYPE="Release" \
   -DCMAKE_CXX_COMPILER=/usr/bin/g++-13 \
+  -DCMAKE_C_COMPILER=/usr/bin/gcc-13 \
   -DCMAKE_CXX_STANDARD=20 \
+  -DASSIMP_BUILD_MINIZIP=1 \
+  -DBUILD_TESTS=OFF -DOPENSPACE_HAVE_TESTS=OFF -DSGCT_BUILD_TESTS=OFF \
+  -DOPENSPACE_DISTRO=ubuntu24.04 -DCMAKE_INSTALL_PREFIX=/usr \
   -B ./build
 
 # Use the system's libvulkan, not the vendored one, otherwise they might conflict
