@@ -7,8 +7,13 @@ RUN apt update
 RUN apt install -y wget cmake
 
 # Set up the compiler
-RUN apt install -y build-essential
-RUN apt install -y git
+RUN apt install -y \
+ build-essential \
+ software-properties-common \
+ git \
+ libssl-dev \
+ libarchive-dev \
+ ca-certificates
 
 
 ## Install GCC 13 and enable
@@ -19,7 +24,8 @@ RUN apt install -y gcc-13 g++-13 \
 
 
 # Install the remaining OpenSpace dependencies
-RUN apt install -y freeglut3-dev \
+RUN apt install -y \
+  freeglut3-dev \
   glew-utils\
   libpng-dev \
   libxrandr-dev \
@@ -38,6 +44,9 @@ RUN apt install -y freeglut3-dev \
 
 # Install dependencies for running unit tests
 RUN apt install -y xvfb
+
+# Install dependencies for creating packages
+RUN apt install -y fakeroot
 
 
 # Setting up the enviroment so that we can quickly build OpenSpace from the container
