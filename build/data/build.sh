@@ -4,6 +4,16 @@
 #   0: The branch to build (defaults to "master")
 #   1: The repository to build (defaults to "https://github.com/OpenSpace/OpenSpace")
 
+# use system cmake and not vendored one
+# Make sure no stray cmake is present
+rm -fv /usr/bin/cmake /usr/bin/cpack /usr/local/bin/cmake /usr/local/bin/cpack
+
+# Install Ubuntu’s cmake
+apt update && apt install -y cmake
+
+which cmake && which cpack && cmake --version && cpack --version && dpkg -L cmake | grep CPack.cmake && ls -ld /usr/share/cmake-*
+
+
 args_array=("$@")
 if [ ${#args_array[@]} -eq 0 ]; then
   args_array+=("DebwithCPack")
