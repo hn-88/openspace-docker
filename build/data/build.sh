@@ -33,4 +33,4 @@ cef_orig_dir=$(find ./build -path */Release/libcef.so | xargs dirname)
 rm -v $cef_orig_dir/libvulkan.so.1
 
 cmake --build build --parallel 3
-cpack
+cpack -G TGZ
