@@ -4,7 +4,12 @@ RUN apt update
 
 
 # Get a supported version for CMake and install
-RUN apt install -y wget cmake
+RUN apt install -y wget
+# Make sure no stray cmake is present
+RUN rm -fv /usr/bin/cmake /usr/bin/cpack /usr/local/bin/cmake /usr/local/bin/cpack
+
+# Install Ubuntu’s cmake
+RUN apt install -y cmake
 
 # Set up the compiler
 RUN apt install -y \
